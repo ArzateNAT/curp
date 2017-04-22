@@ -85,37 +85,46 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <EditText
+        <TextView
             android:id="@+id/etGenero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/strGenero"
-            style="@style/etData"/>
+            style="@style/tvSubTitle"/>
 
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            style="@style/etData">
             <RadioButton
                 android:id="@+id/rbMan"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="@string/strRb1"
-
                 style="@style/rbSex"/>
 
             <RadioButton
                 android:id="@+id/rbWoman"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="@string/strRb2"
                 style="@style/rbSex"/>
         </RadioGroup>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnGenerateCurp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btnGenerate"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btnGenerateCurp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/btnGenerate" />
+    </RelativeLayout>
 </LinearLayout>

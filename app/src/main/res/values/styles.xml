@@ -9,19 +9,28 @@
     </style>
 
     <style name="etData">
-
+        <item name="android:layout_marginLeft">30dp</item>
+        <item name="android:layout_marginRight">30dp</item>
+        <item name="android:layout_marginTop">10dp</item>
     </style>
 
     <style name="tvSubTitle">
-
+        <item name="android:textSize">25dp</item>
+        <item name="android:layout_marginLeft">30dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
     </style>
 
     <style name="tvField">
-
+        <item name="android:textSize">20dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_marginBottom">5dp</item>
     </style>
 
     <style name="rbSex">
-
+        <!--<item name="android:layout_marginLeft">60dp</item>
+        <item name="android:layout_marginRight">10dp</item>-->
+        
     </style>
 
 

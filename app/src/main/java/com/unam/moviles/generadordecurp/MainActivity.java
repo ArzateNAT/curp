@@ -2,17 +2,19 @@ package com.unam.moviles.generadordecurp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
-ArrayAdapter data_months, data_day, data_years;
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    ArrayAdapter dataMonths, dataDays, dataYears;
     Spinner sp_months, sp_days, sp_year;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +25,17 @@ ArrayAdapter data_months, data_day, data_years;
         sp_months = (Spinner)findViewById(R.id.spnMonth);
         sp_year = (Spinner)findViewById(R.id.spnYear);
 
-        //sp_days = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, generateDays());
-        //sp_months = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, generateMonths());
-        sp_year = (Spinner)findViewById(R.id.spnYear);
+        settingSpinnerProp(dataDays, generateDays(0), sp_days);
+        settingSpinnerProp(dataMonths, generateMonths(), sp_months);
+        settingSpinnerProp(dataYears, generateYears(), sp_year);
+    }
+
+    private void settingSpinnerProp(ArrayAdapter adapter, List<String> list, Spinner spn)
+    {
+        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, list);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spn.setAdapter(adapter);
+        spn.setOnItemSelectedListener(this);
     }
 
     private List<String> generateMonths()
@@ -57,7 +67,6 @@ ArrayAdapter data_months, data_day, data_years;
         else
             top = 30;
 
-//        int[] array = null;
         List<String> array = new ArrayList<>();
         for (int i = 0; i < top; i++)
         {
@@ -69,10 +78,21 @@ ArrayAdapter data_months, data_day, data_years;
     private List<String> generateYears()
     {
         List<String> array = new ArrayList<>();
-        for (int i = 1949; i < 2016; i++)
+        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+        for (int i = 1949; i < currentYear; i++)
         {
             array.add(String.valueOf(i + 1));
         }
         return array;
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }
