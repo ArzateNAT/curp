@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Generador de CURP</string>
+    <string name="strHintName">Nombre (s)</string>
+    <string name="strHintFirstLastName">Apellido paterno</string>
+    <string name="strHintSecondLastName">Apellido materno</string>
+    <string name="strTvBirthday">Fecha de nacimiento</string>
+    <string name="tvDay">Día</string>
+    <string name="tvMounth">Mes</string>
+    <string name="tvYear">Año</string>
+    <string name="strGenero">Género</string>
+    <string name="strRb1">Hombre</string>
+    <string name="strRb2">Mujer</string>
+    <string name="btnGenerate">GENERAR</string>
+
+
+</resources>
