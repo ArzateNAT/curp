@@ -25,9 +25,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         sp_months = (Spinner)findViewById(R.id.spnMonth);
         sp_year = (Spinner)findViewById(R.id.spnYear);
 
-        settingSpinnerProp(dataDays, generateDays(0), sp_days);
         settingSpinnerProp(dataMonths, generateMonths(), sp_months);
         settingSpinnerProp(dataYears, generateYears(), sp_year);
+        int quantity = (sp_year.getCount() - 13) - 1;
+        sp_year.setSelection(quantity);
     }
 
     private void settingSpinnerProp(ArrayAdapter adapter, List<String> list, Spinner spn)
@@ -88,7 +89,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+        if(parent.getId() == sp_months.getId())
+        {
+            int month = (int)sp_months.getSelectedItemId();
+            settingSpinnerProp(dataDays, generateDays(month), sp_days);
+        }
     }
 
     @Override
